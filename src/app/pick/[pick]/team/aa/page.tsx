@@ -3,6 +3,7 @@
 import React, {use, useEffect, useRef, useState} from 'react';
 import ScratchCard from 'react-scratchcard-v4';
 import Image from "next/image";
+import {Metadata} from "next";
 
 export default function Home(props: { params: Promise<{ pick: string }> }) {
 
@@ -11,8 +12,8 @@ export default function Home(props: { params: Promise<{ pick: string }> }) {
     const [name, setName] = useState("")
 
     useEffect(() => {
-        console.log(pick)
         setPick(params.pick)
+        document.title = `CHAMPIONS LEAGUE Draft Pick #${params.pick}`
     }, [props.params])
 
     return (
@@ -30,7 +31,7 @@ export default function Home(props: { params: Promise<{ pick: string }> }) {
                 >
 <div className={"relative flex items-center justify-center overflow-hidden text-center w-full h-full bg-[url('/aa.png')] bg-center bg-no-repeat bg-contain"}>
     <h1 className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
-        <img width={40} height={40} src={"/aalogo.png"} className={"mr-2"}/>
+        {name && <img width={40} height={40} src={"/aalogo.png"} className={"mr-2"}/>}
         {name}
     </h1>
 </div>
