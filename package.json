@@ -12,7 +12,8 @@
     "next": "15.4.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-scratchcard-v4": "^1.1.6"
+    "react-scratchcard-v4": "^1.1.6",
+    "vercel": "^44.7.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
