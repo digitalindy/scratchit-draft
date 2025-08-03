@@ -1,40 +1,30 @@
-"use client";
+import React from 'react';
+import ScratchCardClient from './ScratchCardClient';
+import type { Metadata } from 'next';
 
-import React, {use, useEffect, useState} from 'react';
-import ScratchCard from 'react-scratchcard-v4';
+export async function generateMetadata({ params }: { params: Promise<{ pick: string }> }): Promise<Metadata> {
+  const { pick } = await params;
+  const title = `🏆 CHAMPIONS LEAGUE Draft Pick #${pick}`;
+  
+  return {
+    title,
+    description: "Scratch to reveal your Champions League draft pick!",
+    openGraph: {
+      title,
+      description: "Scratch to reveal your Champions League draft pick!",
+      type: "website",
+      siteName: "Champions League Draft",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: "Scratch to reveal your Champions League draft pick!",
+    },
+  };
+}
 
-export default function Home(props: { params: Promise<{ pick: string }> }) {
+export default async function Home(props: { params: Promise<{ pick: string }> }) {
+    const params = await props.params;
 
-    const params = use(props.params)
-    const [pick, setPick] = useState("")
-    const [name, setName] = useState("")
-
-    useEffect(() => {
-        setPick(params.pick)
-        document.title = `🏆 CHAMPIONS LEAGUE Draft Pick #${params.pick}`
-    }, [params.pick])
-
-    return (
-        <div className={"flex-col w-full h-screen items-center justify-center over"}>
-            <h1 className={"font-bold text-3xl m-3 text-center"}>🏆 CHAMPIONS LEAGUE Draft Pick #{pick}</h1>
-            <div className={"flex items-center justify-center overflow-hidden"}>
-<ScratchCard
-    width={Math.min(window.innerWidth, 1024)}
-    height={Math.min(window.innerWidth, 1024) * (683 / 1024)}
-    image={"https://statico.profootballnetwork.com/wp-content/uploads/2021/02/15211332/nfl-logo-shield-history-design-meaning.jpg"}
-    finishPercent={70}
-    onComplete={() => {
-        setName("Dumpster Fire")
-    }}
->
-<div className={"relative flex items-center justify-center overflow-hidden text-center w-full h-full bg-[url('/aa.png')] bg-center bg-no-repeat bg-contain"}>
-    <h1 className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
-        {name && <img width={40} height={40} src={"/aalogo.png"} className={"mr-2"}/>}
-        {name}
-    </h1>
-</div>
-                </ScratchCard>
-            </div>
-        </div>
-    );
+    return <ScratchCardClient pick={params.pick} />;
 };
