@@ -32,6 +32,7 @@ export default function Home(props: { params: Promise<{ pick: string, team: stri
     height={Math.min(window.innerWidth, 1024) * (683 / 1024)}
     image={"https://statico.profootballnetwork.com/wp-content/uploads/2021/02/15211332/nfl-logo-shield-history-design-meaning.jpg"}
     finishPercent={70}
+    brushSize={10}
     onComplete={() => {
         setName(team)
     }}
