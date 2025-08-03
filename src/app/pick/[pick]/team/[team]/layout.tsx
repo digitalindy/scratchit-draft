@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 type Props = {
-  params: Promise<{ pick: string }>;
+  params: Promise<{ pick: string; team: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { pick } = await params;
+  const { pick, team } = await params;
   const title = `🏆 CHAMPIONS LEAGUE Draft Pick #${pick}`;
   const description = `Scratch to reveal the Champions League #${pick} draft pick!`;
   const imageUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'https://champions-draft.vercel.app'}/nfl.png`;
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       type: 'website',
-      url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://champions-draft.vercel.app'}/pick/${pick}`,
+      url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://champions-draft.vercel.app'}/pick/${pick}/team/${team}`,
       siteName: 'Champions League Draft',
       images: [
         {
