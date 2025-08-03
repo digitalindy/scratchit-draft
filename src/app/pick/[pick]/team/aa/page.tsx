@@ -1,9 +1,7 @@
 "use client";
 
-import React, {use, useEffect, useRef, useState} from 'react';
+import React, {use, useEffect, useState} from 'react';
 import ScratchCard from 'react-scratchcard-v4';
-import Image from "next/image";
-import {Metadata} from "next";
 
 export default function Home(props: { params: Promise<{ pick: string }> }) {
 
