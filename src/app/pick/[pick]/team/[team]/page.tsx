@@ -18,6 +18,11 @@ export default function Home(props: { params: Promise<{ pick: string, team: stri
         document.title = `🏆 CHAMPIONS LEAGUE Draft Pick #${params.pick}`
     }, [params.pick, params.team])
 
+    // if window is not defined, return empty div
+    if (typeof window === "undefined") {
+        return <div className="w-full h-screen flex items-center justify-center">Loading...</div>;
+    }
+
     return (
         <div className={"flex-col w-full h-screen items-center justify-center over"}>
             <h1 className={"font-bold text-3xl m-3 text-center"}>🏆 CHAMPIONS LEAGUE Draft Pick #{pick}</h1>
