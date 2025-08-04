@@ -26,6 +26,7 @@ export default function Home(props: { params: Promise<{ pick: string, team: stri
     return (
         <div className={"flex-col w-full h-screen items-center justify-center over"}>
             <h1 className={"font-bold text-3xl m-3 text-center"}>🏆 CHAMPIONS LEAGUE Draft Pick #{pick}</h1>
+            <h4 className={"m-3 text-center"}>Scratch off below</h4>
             <div className={"flex items-center justify-center overflow-hidden"}>
 <ScratchCard
     width={Math.min(window.innerWidth, 1024)}
@@ -37,7 +38,7 @@ export default function Home(props: { params: Promise<{ pick: string, team: stri
         setName(team)
     }}
 >
-<div className={"relative flex items-center justify-center overflow-hidden text-center w-full h-full bg-[url('/aa.png')] bg-center bg-no-repeat bg-contain"}>
+<div className={"relative flex items-center justify-center overflow-hidden text-center w-full h-full bg-[url('/cc.png')] bg-center bg-no-repeat bg-contain"}>
     <h1 className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
         {name && <img width={40} height={40} src={`/${params.team}-logo.png`} className={"mr-2"}/>}
         {name}
