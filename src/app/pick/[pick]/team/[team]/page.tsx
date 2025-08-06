@@ -38,7 +38,7 @@ export default function Home(props: { params: Promise<{ pick: string, team: stri
         setName(team)
     }}
 >
-<div className={`relative flex items-center justify-center overflow-hidden text-center w-full h-full bg-[url('/${params.team}.png')] bg-center bg-no-repeat bg-contain`}>
+<div className={`relative flex items-center justify-center overflow-hidden text-center w-full h-full bg-[url('https://champions-draft.vercel.app/${params.team}.png')] bg-center bg-no-repeat bg-contain`}>
     <h1 className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
         {name && <img width={40} height={40} src={`/${params.team}-logo.png`} className={"mr-2"}/>}
         {name}
