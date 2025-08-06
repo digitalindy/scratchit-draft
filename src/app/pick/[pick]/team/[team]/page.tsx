@@ -29,16 +29,16 @@ export default function Home(props: { params: Promise<{ pick: string, team: stri
             <h4 className={"m-3 text-center"}>Scratch off below</h4>
             <div className={"flex items-center justify-center overflow-hidden"}>
 <ScratchCard
-    width={Math.min(window.innerWidth, 1024)}
-    height={Math.min(window.innerWidth, 1024) * (683 / 1024)}
-    image={"https://statico.profootballnetwork.com/wp-content/uploads/2021/02/15211332/nfl-logo-shield-history-design-meaning.jpg"}
+    width={Math.min(window.innerWidth, 924)}
+    height={Math.min(window.innerWidth, 1024) * (478 / 1024)}
+    image={"/nfl.png"}
     finishPercent={70}
     brushSize={10}
     onComplete={() => {
         setName(team)
     }}
 >
-<div className={"relative flex items-center justify-center overflow-hidden text-center w-full h-full bg-[url('/cc.png')] bg-center bg-no-repeat bg-contain"}>
+<div className={`relative flex items-center justify-center overflow-hidden text-center w-full h-full bg-[url('/${params.team}.png')] bg-center bg-no-repeat bg-contain`}>
     <h1 className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
         {name && <img width={40} height={40} src={`/${params.team}-logo.png`} className={"mr-2"}/>}
         {name}
